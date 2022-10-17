@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class PhoneBook {
 
@@ -17,7 +18,14 @@ public class PhoneBook {
     }
 
     public static Integer findByName(String name) {
-        return null;
+        Set<Map.Entry<Integer, String>> entrySet = phoneBook.entrySet();
+        Integer phoneNumber = null;
+        for (Map.Entry<Integer, String> nameNumber : entrySet) {
+            if (name.equals(nameNumber.getValue())) {
+                phoneNumber = nameNumber.getKey();
+            }
+        }
+        return phoneNumber;
     }
 
     public static Map<Integer, String> getPhoneBook() {
