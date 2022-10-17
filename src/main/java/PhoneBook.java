@@ -1,39 +1,40 @@
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class PhoneBook {
 
-    static Map<Integer, String> phoneBook = new HashMap<>();
+    static Map<String, Integer> phoneBook = new TreeMap<>();
 
-    public static int addContact(int phoneNumber, String name) {
-        if (!phoneBook.containsValue(name)) {
-            phoneBook.putIfAbsent(phoneNumber, name);
+    public static int addContact(String name, int phoneNumber) {
+        if (!phoneBook.containsKey(name)) {
+            phoneBook.putIfAbsent(name, phoneNumber);
         }
         return phoneBook.size();
     }
 
     public static String findByNumber(int phoneNumber) {
-        return phoneBook.get(phoneNumber);
+        Set<Map.Entry<String, Integer>> entrySet = phoneBook.entrySet();
+        String name = null;
+        for (Map.Entry<String, Integer> nameNumberPair : entrySet) {
+            if (phoneNumber == nameNumberPair.getValue()) {
+                name = nameNumberPair.getKey();
+            }
+        }
+        return name;
     }
 
     public static Integer findByName(String name) {
-        Set<Map.Entry<Integer, String>> entrySet = phoneBook.entrySet();
-        Integer phoneNumber = null;
-        for (Map.Entry<Integer, String> nameNumber : entrySet) {
-            if (name.equals(nameNumber.getValue())) {
-                phoneNumber = nameNumber.getKey();
-            }
-        }
-        return phoneNumber;
+        return phoneBook.get(name);
     }
 
     public static Collection<String> printAllNames() {
-        return null;
+        Collection<String> nameList = new ArrayList<>();
+        for (String name : phoneBook.keySet()) {
+            nameList.add(name);
+        }
+        return nameList;
     }
 
-    public static Map<Integer, String> getPhoneBook() {
+    public static Map<String, Integer> getPhoneBook() {
         return phoneBook;
     }
 }

@@ -2,32 +2,29 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBookTest {
 
-    Map<Integer, String> expected = new HashMap<>();
+    Map<String, Integer> expected = new TreeMap<>();
 
     @Test
     @DisplayName("Test of adding a new contact")
     void addContactTest() {
-        PhoneBook.addContact(123_444_555, "Masha");
-        PhoneBook.addContact(123_444_666, "Dasha");
-        PhoneBook.addContact(123_444_777, "Vova");
-        PhoneBook.addContact(123_444_888, "Dima");
-        int actualNumber = PhoneBook.addContact(123_444_778, "Vova");
+        PhoneBook.addContact("Masha", 123_444_555);
+        PhoneBook.addContact("Dasha", 123_444_666);
+        PhoneBook.addContact("Vova", 123_444_777);
+        PhoneBook.addContact("Dima", 123_444_888);
+        int actualNumber = PhoneBook.addContact("Vova", 123_444_778);
 
-        expected.put(123_444_555, "Masha");
-        expected.put(123_444_666, "Dasha");
-        expected.put(123_444_777, "Vova");
-        expected.put(123_444_888, "Dima");
+        expected.put("Masha", 123_444_555);
+        expected.put("Dasha", 123_444_666);
+        expected.put("Vova", 123_444_777);
+        expected.put("Dima", 123_444_888);
 
         int expectedNumber = expected.size();
 
-        Map<Integer, String> actual = PhoneBook.getPhoneBook();
+        Map<String, Integer> actual = PhoneBook.getPhoneBook();
 
         Assertions.assertEquals(expected, actual);
         Assertions.assertEquals(expectedNumber, actualNumber);
@@ -36,10 +33,10 @@ public class PhoneBookTest {
     @Test
     @DisplayName("Test of finding name by number")
     void findByNumberTest() {
-        PhoneBook.addContact(123_444_555, "Masha");
-        PhoneBook.addContact(123_444_666, "Dasha");
-        PhoneBook.addContact(123_444_777, "Vova");
-        PhoneBook.addContact(123_444_888, "Dima");
+        PhoneBook.addContact("Masha", 123_444_555);
+        PhoneBook.addContact("Dasha", 123_444_666);
+        PhoneBook.addContact("Vova", 123_444_777);
+        PhoneBook.addContact("Dima", 123_444_888);
 
         String expected = "Masha";
         String actual = PhoneBook.findByNumber(123_444_555);
@@ -53,10 +50,10 @@ public class PhoneBookTest {
     @Test
     @DisplayName("Test of finding number by name")
     void findByNameTest() {
-        PhoneBook.addContact(123_444_555, "Masha");
-        PhoneBook.addContact(123_444_666, "Dasha");
-        PhoneBook.addContact(123_444_777, "Vova");
-        PhoneBook.addContact(123_444_888, "Dima");
+        PhoneBook.addContact("Masha", 123_444_555);
+        PhoneBook.addContact("Dasha", 123_444_666);
+        PhoneBook.addContact("Vova", 123_444_777);
+        PhoneBook.addContact("Dima", 123_444_888);
 
         int expected = 123_444_666;
         int actual = PhoneBook.findByName("Dasha");
@@ -70,10 +67,10 @@ public class PhoneBookTest {
     @Test
     @DisplayName("Test of printing out all names")
     void printAllNamesTest() {
-        PhoneBook.addContact(123_444_555, "Masha");
-        PhoneBook.addContact(123_444_666, "Dasha");
-        PhoneBook.addContact(123_444_777, "Vova");
-        PhoneBook.addContact(123_444_888, "Dima");
+        PhoneBook.addContact("Masha", 123_444_555);
+        PhoneBook.addContact("Dasha", 123_444_666);
+        PhoneBook.addContact("Vova", 123_444_777);
+        PhoneBook.addContact("Dima", 123_444_888);
 
         Collection<String> actual = PhoneBook.printAllNames();
 
