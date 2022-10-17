@@ -46,6 +46,23 @@ public class PhoneBookTest {
 
         Assertions.assertEquals(expected, actual);
         Assertions.assertNotEquals(nonExpected, actual);
-        Assertions.assertNotNull(nonExpected, actual);
+        Assertions.assertNotNull(actual);
+    }
+
+    @Test
+    @DisplayName("Test of finding number by name")
+    void findByNameTest() {
+        PhoneBook.addContact(123_444_555, "Masha");
+        PhoneBook.addContact(123_444_666, "Dasha");
+        PhoneBook.addContact(123_444_777, "Vova");
+        PhoneBook.addContact(123_444_888, "Dima");
+
+        int expected = 123_444_666;
+        int actual = PhoneBook.findByName("Dasha");
+        int nonExpected = 123_444_888;
+
+        Assertions.assertEquals(expected, actual);
+        Assertions.assertNotEquals(nonExpected, actual);
+        Assertions.assertNotNull(actual);
     }
 }

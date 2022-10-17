@@ -16,6 +16,10 @@ public class PhoneBook {
         return phoneBook.get(phoneNumber);
     }
 
+    public static Integer findByName(String name) {
+        return null;
+    }
+
     public static Map<Integer, String> getPhoneBook() {
         return phoneBook;
     }
