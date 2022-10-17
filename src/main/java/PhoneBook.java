@@ -5,8 +5,11 @@ public class PhoneBook {
 
     static Map<Integer, String> phoneBook = new HashMap<>();
 
-    public static boolean addContact(int phoneNumber, String name) {
-        return false;
+    public static int addContact(int phoneNumber, String name) {
+        if (!phoneBook.containsValue(name)) {
+            phoneBook.putIfAbsent(phoneNumber, name);
+        }
+        return phoneBook.size();
     }
 
     public static Map<Integer, String> getPhoneBook() {

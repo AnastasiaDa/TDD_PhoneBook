@@ -16,15 +16,19 @@ public class PhoneBookTest {
         PhoneBook.addContact(123_444_666, "Dasha");
         PhoneBook.addContact(123_444_777, "Vova");
         PhoneBook.addContact(123_444_888, "Dima");
+        int actualNumber = PhoneBook.addContact(123_444_778, "Vova");
 
         expected.put(123_444_555, "Masha");
         expected.put(123_444_666, "Dasha");
         expected.put(123_444_777, "Vova");
         expected.put(123_444_888, "Dima");
 
+        int expectedNumber = expected.size();
+
         Map<Integer, String> actual = PhoneBook.getPhoneBook();
 
         Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expectedNumber, actualNumber);
 
     }
 }
