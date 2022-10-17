@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -26,6 +27,10 @@ public class PhoneBook {
             }
         }
         return phoneNumber;
+    }
+
+    public static Collection<String> printAllNames() {
+        return null;
     }
 
     public static Map<Integer, String> getPhoneBook() {
