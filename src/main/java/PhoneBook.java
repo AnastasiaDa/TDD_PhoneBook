@@ -12,6 +12,10 @@ public class PhoneBook {
         return phoneBook.size();
     }
 
+    public static String findByNumber(int phoneNumber) {
+        return null;
+    }
+
     public static Map<Integer, String> getPhoneBook() {
         return phoneBook;
     }

@@ -9,6 +9,7 @@ public class PhoneBookTest {
 
     Map<Integer, String> expected = new HashMap<>();
 
+
     @Test
     @DisplayName("Test of adding a new contact")
     void addContactTest() {
@@ -29,6 +30,15 @@ public class PhoneBookTest {
 
         Assertions.assertEquals(expected, actual);
         Assertions.assertEquals(expectedNumber, actualNumber);
+    }
+
+    @Test
+    @DisplayName("Test of finding name by number")
+    void findByNumberTest() {
+        String expected = "Masha";
+        String actual = PhoneBook.findByNumber(123_444_555);
+
+        Assertions.assertEquals(expected, actual);
 
     }
 }
