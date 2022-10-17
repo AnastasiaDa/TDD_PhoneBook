@@ -1,13 +1,14 @@
 .gradle
 .idea
 gradle
-build
+gradlew.bat
+settings.gradle
 gradlew
-setting
 /build/
 .idea
 gradle
 /resources
+build.gradle
 
 # Ignore Gradle GUI config
 gradle-app.setting
