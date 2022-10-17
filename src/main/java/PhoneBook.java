@@ -13,7 +13,7 @@ public class PhoneBook {
     }
 
     public static String findByNumber(int phoneNumber) {
-        return null;
+        return phoneBook.get(phoneNumber);
     }
 
     public static Map<Integer, String> getPhoneBook() {

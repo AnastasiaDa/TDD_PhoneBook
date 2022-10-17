@@ -35,10 +35,17 @@ public class PhoneBookTest {
     @Test
     @DisplayName("Test of finding name by number")
     void findByNumberTest() {
+        PhoneBook.addContact(123_444_555, "Masha");
+        PhoneBook.addContact(123_444_666, "Dasha");
+        PhoneBook.addContact(123_444_777, "Vova");
+        PhoneBook.addContact(123_444_888, "Dima");
+
         String expected = "Masha";
         String actual = PhoneBook.findByNumber(123_444_555);
+        String nonExpected = "Vova";
 
         Assertions.assertEquals(expected, actual);
-
+        Assertions.assertNotEquals(nonExpected, actual);
+        Assertions.assertNotNull(nonExpected, actual);
     }
 }
